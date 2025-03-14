@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminari Box | Unlock Your Destiny</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#1a1d23',
+                        gold: '#f7dc6f',
+                        purple: '#6c5ce7',
+                        light: '#e5e5ea',
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in classes to hero elements
+            const heroTitle = document.querySelector('.hero-section h1');
+            const heroText = document.querySelector('.hero-section p');
+            const heroButtons = document.querySelector('.hero-section .flex');
+            
+            heroTitle.classList.add('fade-in', 'fade-in-delay-1');
+            heroText.classList.add('fade-in', 'fade-in-delay-2');
+            heroButtons.classList.add('fade-in', 'fade-in-delay-3');
+            
+            // Add scroll reveal classes to sections
+            const aboutImage = document.querySelector('#about .relative');
+            const aboutText = document.querySelector('#about .md\\:pl-16');
+            const boxes = document.querySelectorAll('#boxes .mystery-box');
+            const testimonials = document.querySelectorAll('#testimonials .bg-dark\\/30');
+            const faqItems = document.querySelectorAll('#faq .border');
+            
+            aboutImage.classList.add('reveal-from-left');
+            aboutText.classList.add('reveal-from-right');
+            
+            boxes.forEach(box => box.classList.add('reveal-on-scroll'));
+            testimonials.forEach(testimonial => testimonial.classList.add('reveal-on-scroll'));
+            faqItems.forEach(item => item.classList.add('reveal-on-scroll'));
+            
+            // Function to check if element is in viewport
+            function checkScroll() {
+                const elements = document.querySelectorAll('.reveal-on-scroll, .reveal-from-left, .reveal-from-right', 'footer');
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Add event listener for scroll
+            window.addEventListener('scroll', checkScroll);
+            
+            // Check on initial load
+            checkScroll();
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #1a1d23;
+            color: #e5e5ea;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+        }
+        
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 29, 35, 0.7), rgba(26, 29, 35, 0.9)), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        
+        .glow {
+            text-shadow: 0 0 0px #f7dc6f, 0 0 20px #f7dc6f;
+        }
+        
+        .box-shadow {
+            box-shadow: 0 0 15px rgba(247, 220, 111, 0.5);
+        }
+        
+        .constellation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .rotate-slow {
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .mystery-box {
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        
+        .mystery-box:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
+        }
+        
+        .fade-in-delay-1 {
+            animation-delay: 0.3s;
+        }
+        
+        .fade-in-delay-2 {
+            animation-delay: 0.6s;
+        }
+        
+        .fade-in-delay-3 {
+            animation-delay: 0.9s;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-from-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal-from-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-from-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal-from-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
+        }
+        
+        .fade-in-delay-1 {
+            animation-delay: 0.3s;
+        }
+        
+        .fade-in-delay-2 {
+            animation-delay: 0.6s;
+        }
+        
+        .fade-in-delay-3 {
+            animation-delay: 0.9s;
+        }
+
+        footer {
+            background-color: #1a1d23;
+            color: #e5e5ea;
+        }
+        
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            text-decoration: none;
+        }
+        
+        footer input {
+            border: none;
+            border-radius: 10px;
+        }
+        
+        footer button {
+            border: none;
+            border-radius: 10px;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark bg-opacity-90 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="/static/desLOGO.png" alt="Luminari Box Logo" class="h-12 w-auto mr-3">
+                <h1 class="text-4xl font-bold text-[#f7dc6f]">Luminari Box</h1>
+            </a>
+            <div class="hidden md:flex space-x-10">
+                <a href="#about" class="text-light hover:text-gold transition">The Legend</a>
+                <a href="#boxes" class="text-light hover:text-gold transition">Our Boxes</a>
+                <a href="#testimonials" class="text-light hover:text-gold transition">Testimonials</a>
+                <a href="#faq" class="text-light hover:text-gold transition">FAQ</a>
+            </div>
+            <button class="bg-purple hover:bg-opacity-80 text-light px-5 py-2 rounded-full transition transform hover:scale-105">
+                Unlock Mystery
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section style="box-shadow: 0px 27px 19px 17px #1a1d24; z-index: 1;" class="hero-section flex items-center justify-center relative overflow-hidden">
+        <canvas class="constellation absolute"></canvas>
+        <div class="container mx-auto px-6 z-10 text-center">
+            <div class="">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="text-gold glow">Unlock</span> Your <span class="text-purple">Destiny</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+                    Every Luminari Box contains a mystery waiting to transform your journey.
+                    Are you ready to discover what the universe has in store for you?
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <button class="bg-gold text-dark hover:bg-opacity-80 px-8 py-3 rounded-full text-lg font-bold transition transform hover:scale-105">
+                        Choose Your Mystery
+                    </button>
+                    <button class="border-2 border-light text-light hover:border-gold hover:text-gold px-8 py-3 rounded-full text-lg font-bold transition">
+                        Explore The Legend
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <div class="wrapper" style="display: flex;flex-direction:row;overflow-y: clip;">
+        <div class="side" style="width: 64px;transform: translateY(-64px);">
+            <svg style="transform: rotate(90deg);
+    transform-origin: bottom left;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400vh" height="65px">
+                <defs>
+                    <pattern id="patt1" x="0" y="0" width="65px" height="2024px" patternUnits="userSpaceOnUse">
+                        <image x="0px" y="0px" width="1024px" height="65px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAABBCAMAAAB4iCZrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACB1BMVEX////33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G////+YtpLZAAAAq3RSTlMAAEw1ZyIThgIIqw8SAQYXGh4LGC89OTYhEQUjRU5KQT46JgwEHzA3NBVCMjEqLQcOHEYDDQodFCApVNFvpSejXBBW1UvBWdNksjOaaUneT7z1x5vgzFUkoInpPPdQXaqSgJedyq0uLM9eaHemi5FslI5X83tjcXm1nphhzojouX6FxUMZfziwvhbi8SXZCbeo3O/AYmZ0r1jtoubDtINRfJXaKyhtcHVbgk26B9hfAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+kDDwIROnQNpKAAABwMSURBVHja7Z2JQxRHvsdnwjUEhhkcBrnCJYozCALDGVlF0cUI4hE8YDWKghpRBA/AHKjZxCOJSZRd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"></image>
+                    </pattern>
+                </defs>
+
+                <rect height="100px" width="400vh" x="0" y="0" stroke="black" fill="url(#patt1)"></rect>
+            </svg>
+        </div>
+        <div class="main">
+            <!-- About Section -->
+        <section id="about" class="py-20 relative">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <div class="relative reveal-from-left active">
+                            <div class="w-64 h-64 md:w-80 md:h-80 bg-purple rounded-lg absolute -top-4 -left-4 opacity-30 rotate-slow"></div>
+                            <img src="/static/box.png" alt="Ancient Luminari Box" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg relative z-10 box-shadow">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 reveal-from-right active">
+                        <h2 class="text-4xl font-bold mb-6">The <span class="text-gold">Legend</span> of the Luminari Box</h2>
+                        <p class="mb-4 text-lg">
+                            Long ago, a secret society known as The Luminari guarded a mysterious artifact—a box said to hold celestial wisdom. Those who opened it didn't just find objects; they uncovered symbols of transformation, hidden knowledge, and personal destiny.
+                        </p>
+                        <p class="mb-6 text-lg">
+                            But the box was no ordinary chest. It appeared only to seekers—those ready to embrace curiosity and unlock their true potential.
+                        </p>
+                        <p class="text-lg text-gold font-semibold">
+                            Inspired by this legend, Luminari Box brings modern-day mystery and magic to those who dare to explore the unknown. Will you be the next to unlock its secrets?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Boxes Section -->
+        <section id="boxes" class="py-20 bg-gradient-to-b from-dark to-dark/70">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Choose Your <span class="text-gold">Mystery</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Box 1 -->
+                    <div class="bg-dark/50 backdrop-blur-sm rounded-xl p-8 border border-purple/30 mystery-box reveal-on-scroll active">
+                        <div class="h-48 flex items-center justify-center mb-6">
+                            <div class="w-32 h-32 bg-gold/20 rounded-xl flex items-center justify-center">
+                                <span class="text-gold text-5xl">✧</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Novice Seeker</h3>
+                        <p class="text-light/80 mb-6">Begin your journey with carefully curated mysteries that awaken your curiosity and intuition.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold text-2xl font-bold">$39.99</span>
+                            <button class="bg-purple hover:bg-opacity-80 text-light px-5 py-2 rounded-full transition transform hover:scale-105">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Box 2 -->
+                    <div class="bg-dark/50 backdrop-blur-sm rounded-xl p-8 border border-gold mystery-box transform scale-105 reveal-on-scroll active">
+                        <div class="absolute -top-4 right-4">
+                            <span class="bg-gold text-dark text-sm font-bold px-3 py-1 rounded-full">MOST POPULAR</span>
+                        </div>
+                        <div class="h-48 flex items-center justify-center mb-6">
+                            <div class="w-32 h-32 bg-purple/30 rounded-xl flex items-center justify-center">
+                                <span class="text-purple text-5xl">⟠</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Adept Explorer</h3>
+                        <p class="text-light/80 mb-6">Delve deeper into the unknown with premium artifacts and personalized cosmic guidance.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold text-2xl font-bold">$69.99</span>
+                            <button class="bg-gold text-dark hover:bg-opacity-80 px-5 py-2 rounded-full transition transform hover:scale-105">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Box 3 -->
+                    <div class="bg-dark/50 backdrop-blur-sm rounded-xl p-8 border border-purple/30 mystery-box reveal-on-scroll active">
+                        <div class="h-48 flex items-center justify-center mb-6">
+                            <div class="w-32 h-32 bg-gold/20 rounded-xl flex items-center justify-center">
+                                <span class="text-gold text-5xl">⍟</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Master Illuminator</h3>
+                        <p class="text-light/80 mb-6">For the dedicated seeker, rare collectibles and exclusive access to ancient Luminari wisdom.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold text-2xl font-bold">$129.99</span>
+                            <button class="bg-purple hover:bg-opacity-80 text-light px-5 py-2 rounded-full transition transform hover:scale-105">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Seekers <span class="text-gold">Transformed</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-dark/30 backdrop-blur-sm p-8 rounded-xl border border-gold/20 reveal-on-scroll active">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-purple flex items-center justify-center mr-4">
+                                <span class="text-light font-bold">JM</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Jamie Morgan</h4>
+                                <p class="text-light/70 text-sm">Novice Seeker</p>
+                            </div>
+                        </div>
+                        <p class="text-light/90 italic">
+                            "I was skeptical at first, but my Luminari Box contained items that seemed to speak directly to my soul. The crystal pendant arrived the day I was making a major life decision—it felt like the universe was guiding me."
+                        </p>
+                        <div class="mt-4 flex">
+                            <span class="text-gold">★★★★★</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-dark/30 backdrop-blur-sm p-8 rounded-xl border border-gold/20 reveal-on-scroll active">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-purple flex items-center justify-center mr-4">
+                                <span class="text-light font-bold">AR</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Alex Rivera</h4>
+                                <p class="text-light/70 text-sm">Adept Explorer</p>
+                            </div>
+                        </div>
+                        <p class="text-light/90 italic">
+                            "Six months of Luminari Boxes have transformed my space and mindset. Each box feels like it was curated specifically for my journey. The ancient symbols guide book has become my daily companion."
+                        </p>
+                        <div class="mt-4 flex">
+                            <span class="text-gold">★★★★★</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="bg-dark/30 backdrop-blur-sm p-8 rounded-xl border border-gold/20 reveal-on-scroll active">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-purple flex items-center justify-center mr-4">
+                                <span class="text-light font-bold">SK</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Samira Khan</h4>
+                                <p class="text-light/70 text-sm">Master Illuminator</p>
+                            </div>
+                        </div>
+                        <p class="text-light/90 italic">
+                            "The Master Illuminator box is worth every penny. The handcrafted celestial map arrived during a time of uncertainty, and somehow pointed me toward a path I hadn't considered. It's not just products—it's guidance."
+                        </p>
+                        <div class="mt-4 flex">
+                            <span class="text-gold">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-dark/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Frequently Asked <span class="text-gold">Questions</span></h2>
+                
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="border border-purple/30 rounded-xl overflow-hidden reveal-on-scroll active">
+                        <button class="w-full text-left p-6 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-bold">How does Luminari Box know what to send me?</h3>
+                                <span class="text-gold text-2xl">+</span>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6">
+                            <p class="text-light/80">
+                                When you sign up, you'll complete our Seeker's Profile, which helps us understand your cosmic alignment. Our curators then hand-select items that resonate with your energy and current life path.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-purple/30 rounded-xl overflow-hidden reveal-on-scroll active">
+                        <button class="w-full text-left p-6 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-bold">When will my Luminari Box arrive?</h3>
+                                <span class="text-gold text-2xl">+</span>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6">
+                            <p class="text-light/80">
+                                Boxes ship on the 8th of each month and typically arrive within 5-7 business days. Your first box may take up to 14 days as we carefully align it with your personal energy.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-purple/30 rounded-xl overflow-hidden reveal-on-scroll active">
+                        <button class="w-full text-left p-6 focus:outline-none">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-bold">Can I cancel my subscription?</h3>
+                                <span class="text-gold text-2xl">+</span>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6">
+                            <p class="text-light/80">
+                                Yes, you can pause or cancel your journey at any time through your Seeker's Portal. We believe in freedom of choice and will never bind you to your subscription.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-purple/30 rounded-xl overflow-hidden reveal-on-scroll active">
+    
+            </div>
+        </div></div></section>
+    
+        <footer class="bg-dark/50 py-12 fade-in">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+                <!-- Navigation Links -->
+                <div class="flex flex-col md:w-1/3 mb-6 md:mb-0">
+                    <h4 class="text-gold text-lg font-bold mb-4">Explore</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#about" class="text-light hover:text-gold transition">The Legend</a></li>
+                        <li class="mb-2"><a href="#boxes" class="text-light hover:text-gold transition">Our Boxes</a></li>
+                        <li class="mb-2"><a href="#testimonials" class="text-light hover:text-gold transition">Testimonials</a></li>
+                        <li><a href="#faq" class="text-light hover:text-gold transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Media Icons -->
+                <div class="flex flex-col md:w-1/3 mb-6 md:mb-0">
+                    <h4 class="text-gold text-lg font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <ul>
+                            <li><a href="#" class="text-light hover:text-gold transition">
+                                Ishaan
+                                </a>
+                            </li>
+                            <li><a href="#" class="text-light hover:text-gold transition">
+                                Vyom
+                            </a></li>
+                            <li>
+                                <a href="#" class="text-light hover:text-gold transition">
+                                Harehar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light hover:text-gold transition">
+                                Deepanshu
+                                </a>
+                            </li>
+                        </ul>
+    
+                    </div>
+                </div>
+                
+                <!-- Newsletter Signup -->
+                <div class="md:w-1/3">
+                    <h4 class="text-gold text-lg font-bold mb-4">Stay Enlightened</h4>
+                    <form class="flex flex-col md:flex-row items-center">
+                        <input type="email" placeholder="Your Email" class="w-full md:w-2/3 p-2 mb-2 md:mb-0 rounded-full bg-dark/30 text-light focus:outline-none focus:ring-2 focus:ring-gold">
+                        <button class="bg-gold text-dark hover:bg-opacity-80 px-5 py-2 rounded-full text-lg font-bold transition transform hover:scale-105">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Contact Information & Copyright -->
+            <div class="container mx-auto px-6 mt-8 text-center text-light/70">
+                <p class="mb-2">
+                    Luminari Box, By The <span class="text-gold font-bold">4AM CLUB</span>
+                    <br>
+                    <a href="/" class="text-light hover:text-gold transition"></a></p><p><a href="/" class="text-light hover:text-gold transition">Ishaan • Vyom • Harehar • Deepanshu</a></p>
+                <p></p>
+                <p>© 2025 Luminari Box. All rights reserved.</p>
+            </div>
+        </footer>
+        </div>
+        <div class="side" style="width: 64px;transform: translateY(-64px);">
+            <svg style="transform: rotate(90deg);
+    transform-origin: bottom left;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400vh" height="65px">
+                <defs>
+                    <pattern id="patt1" x="0" y="0" width="65px" height="2024px" patternUnits="userSpaceOnUse">
+                        <image x="0px" y="0px" width="1024px" height="65px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAABBCAMAAAB4iCZrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACB1BMVEX////33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G/33G////+YtpLZAAAAq3RSTlMAAEw1ZyIThgIIqw8SAQYXGh4LGC89OTYhEQUjRU5KQT46JgwEHzA3NBVCMjEqLQcOHEYDDQodFCApVNFvpSejXBBW1UvBWdNksjOaaUneT7z1x5vgzFUkoInpPPdQXaqSgJedyq0uLM9eaHemi5FslI5X83tjcXm1nphhzojouX6FxUMZfziwvhbi8SXZCbeo3O/AYmZ0r1jtoubDtINRfJXaKyhtcHVbgk26B9hfAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+kDDwIROnQNpKAAABwMSURBVHja7Z2JQxRHvsdnwjUEhhkcBrnCJYozCALDGVlF0cUI4hE8YDWKghpRBA/AHKjZxCOJSZRds+p7iWvy3tv3+CdfV9V01zFVv/61QtzE/jpgz/SPX1fXr/ozv+qu6g6s+PLl661V4E0XwJcvX29OPgB8+XqL5QPAl6+3WD4AfPl6ixV4x1VZ6R9Y2eyV7e7vnSx3b+ntZr+Tk5vzDvWZnZedZS2Bf4raul1YlC0pqvPCOcZYZTuW2Xl5edZPNt1Ba/md3FAoKy+bfsy2mY2uMFpj2cgyYH3yuLr6tVySzfPKzSK7E3CUa20yNxAK5GfZm892iuFamlVtgSyg2fi4YioqL+/dd9/Ny8rNz8rLY+HLYUt5apG8btNuB7BRFtpvluAt4MuXL1++fPny5cuXL1++fPl6O1QAqLCwsCBMjIoiUTcVR9eR8z2xkni81E3ry4jT8Lpyd1UQy8qq96qrq2pqq96rMqimqqqunpiGNrCib9DJ3q8GYrlxUx1To1Zs3eaNdPcTMesfpFgskU8sc0rjbkomm4jTwsotRKJ9aXNzS0tzc3OWVYPk7ZaslghxutW99qPFrcSyrclyn4S3316aQ0xb3X0yx8WtJK6J5lJEXCuJ55TVbkjTKUzECjo6O0ndxRIFHR0FhbFYIa3Jgo4CWltdtVU1sGqtuFKnDa1AI+lOayux7GmsgryydcxpEYkcGFVLHbiS1lS/V9NLfHbXl1EVR1pbI/VUZcXW4SGqu4g4rSiEGxUtQiexjDYpUU0mkxmfsLiCFWVrqwAAt8sE1cSoDHVFgbCiG2X5PnGaxFhuowBAOW0kpn0Yyz8Ry00op9uJ6Q6MZT96n1YIAHaiLHcRpyUYywEKNZTT3cR0D8qUigIAZfln4rkJYzlIDyuU0zpiuhdj+QGx3Idyuo+YDmEsh4llLcppCQEAynI/cdqLsRyhAEA5PUBMD2AsD3oAQCMaAIeCaADQosYxlofxANiHBsCHxLIF5XQ7uqEc8AaADpQlvUrTjLEcxTeUJDE9gjKlImAvR1keJZ6PYSw9AKARDYDjaFzSYzUwhrHsxwOAZAANKMskuqLGiWUE5XQ3GgAfeADAX/AACHgDAOpg8QAAfAbw4VpkAB4AQHK1dScwlu+gmzQFQBtq87s9AiCEBsDJtQBALTH9CGN5yiMATmMsPQCAOE2hLP8dANA8cebsmTN/NABkYyy9ZgAoAOxfiwzg5FpkAO2vkAHkoix3ozPbSY9dgDUBwGpnAG8YAO3eAMAOAB8AsCgAplZ3n940ALxmAB4BcA5juSYA8NoFWO0M4PzvKgNgmw9c+Lgvu68vm/2Q/5ishY+pgQCAi2zVNBd733fxElktAGDP5ZkzM44uW6/L5EVE1wsHy669tq4Q2ct7r3x0mKymAOihlsdnh4asF9XsLFmaJf9mZ+dm6XqhC3A1m4ntCN0xpqvXyGqhC5A3kdb169bPRF7eRPqT66ykx5xzAIM3hudvzGu0cEPdp7lZqrnZufSStUCX5hbpegKAdXTpyOWbN29+Ysn6zRY+Ib9nPrnJNi90AS5O97EaF6qevmO1LwBg0drwrF50fTs/CfjptCornE6E+25So5ADgM8+p7syJ+4gez9H1590TgKOJPvnh2/cGB6+cXT/gf1HF+aHhxfm+62l4WFaB0IX4NTMGa6ZGb6UbizCSUDWRjT6aIl64rV1dkZwKG3gFF3PATBixdWO5PzCwgIPLIurAIAZ2qp58ajI8mXulAHgVt/t23cszTHddgI23acCwNn6sLU0LLSrGzTxHOEAODg3qwvsnH0ACBnALnoIZRxXV/ayo+og/14JAPqCGPzVAcC42bJcAUDcaLmTHyz76VFtdtqiAKDeaPmlAoCvzE6rHQCwDCBhtDzGAUAbyl2z0wUFALlGyxIFAOaKWqcA4J5581EHAOwcwHqjZa4CgJsBWK0KANrNxb0vA2DM7LRXAcB5o+UDDgCaAcyZnSYVAESNlvUKAJJmp/MKALqNlucVAJSYne6RATBptkw4Rx0DQKnRslwBAHBU3XUyAHcAXEADoFgBwG6jZfcJGQAfmJ3GFQCYK7UeD4CrCgA2Gi23KxkA0FDGFAC0wfskAMB8RBUqADhi3nyZAgAzVSIKAC4FYEUVABw1mx52AEAP8CGz5V0FAI1Gyx48AHYpADB/W/QqANhvdrqgAKDLaFnnoKzBJQSBARkAwFHVpgDA3AKFuLoBgB91ngFwyGypAsDcrruVDMADAPYZLX+/ADBPxtp5QgbAHvPm8QCIviYATppNKQDoOAB6hJ02W+IB0KUAAGjXvN27AYB/WbsCYEIBQI/RkgGAXAYMHSJLQLqoAGDEbLkmAEiuCQCi6AzggQKAU2aneABU4gHwMRoAzWsBgFJ0BhBQAHDLbKkCwFzS1wUAKgM4t2YAOGN2ugsNgBIFAAfMTlUAmDOARr7RcbitqgAYNFuqADA3FiGuqwkA/DkAFQBABqB0AYCi/hEBsP6VAfBGMoAIPgP4zPHc9O8NADUD8AAAcwbAhh/S8cVuADiCBkDslQEAfK3qARAOBS2FqayFtK32HEAs1u3oQUwsgNcuAD9vE+gp/rLty2KmNrua8ecAVABknIEqjNkl1QIgSHY6SHc8GLDvYCEAgKeKkUg0EY1QJSKJaNpUC4Cd69Z12CrsEPdJ7QI4mycRCNrbP+EcccI5gLaotV22dasoact6HQDCqXAoFKI+rZ/MhqICIJabHieeSyTZqwCwvKVri9QXUy4tbqlTBztYYKI9hV3RWLSrK1oZrUybNikAoAeL0+gEn+m485GAFADEGRUZqN9jfymr5wB6WUGdwPJWrWYANKuJ8XH6D7pjdsWqAIiyY8Wq2HBaDWnLOgUAd9P7FBSUNtV2AaKRtki6WVlFSFt6zQD4ZUB2VB3bXmbr2LHtaVP9OQD5+nFx2lYHgAcXRMsZsQAqAO6Klkvp+QdaANR/LZrap3pUALSQxb9KTtMHixYALV9/8/X4+Pg333xzYnycTWkIGADQLzodrGCWWgDI1/ntLw8dAHYu6ipKCwD5On85AIBvH+oqSguA90TL0e/cABD7XrT/oRwAgHydvzMNgBUZAIs0LlJx7e/vJlrLCgCkir3WAABAHuv/KQQAOa4pAAA1ktP3DAAgtAndlEIQBgDQIzktAACQM6mLqxYAcgusAACw+ZFoeRkEgNwE7a9aHQAKJcvHEAB26YqqBYBcU8sQAOSxG0EAAPJQ33kIAPJAnxAAgHbJ8m8AANZJlicgAMiTImz86gAgD/V9CAHgtmTqCgBlqG8BAAB5qEl+GgBKBkAP8Jhkuc0AABq3O7oQaAEgD/SxyaoFwA6dUy0AqiTLvwMACMoVFQQA0CRZ2omtDgDyF/AoBIAnkmkDAAB5pNuPIADkkX4QAOSYXoAAIDcUCAAyf+wLAyoAmsnitGQaBgCwWbK8CAFAbigpAAC7Jct/AACQh0Q+hQAgf6dBAJAbykEIAPKkiK3eADCSAACwXzJNZwCBp+QNBwAb6bckWn5hAABtblckp/gMwD7dgwBABQCAasmyHwBA6pBoeQgCgJwqQQCQR/rZQwO0AJCHROIB8MwDAJrRAHiOBwDUBaiULE0ZQIk3AMj7/zEEAClbBwEg7xMEAHm67yMIAFJfyRnCogNAjmT5H3gAtLoBQB7q+zzXKwASSgZAg9gjTXi6bwBAozcANEqW1yEAyOkivgtg9yt0AAhLABjFA8A+M6wDgJzZgQCQp0VCAJBTYDgDqJdsIQA8kCzBLsABXVERXQD7gpf2KsBXkikeANMQAOQuAAQAfBdAHusPdgHk7zQIAPJ8f7uhIADg2gVQ5vuvQwOgSPz7uLN+kf+5LXsoUxN5owJAzmyhLoBcW2AXYEjnVAsAeay/qQtAvsSVLgB0DkAe6w9lADIA7L4SIgOAzgHIAPhPEAByBlCGBsCf8ABYBwBA5s9PBgCUeAMA6wJ8Yx18J6xj6Wc0ACahk4AyAKCTgPLJkikIAHIGYI83dQcAeBJwWjJtdQOAnAHcw3cBCsS/56epJnncbNnHahN5o54ElDMAPAD60QAYhLoAcgZwFQCAnAFcCgEAkKdF2oPO3QFgj6J8TQDI34B5IABoEzoSDBGFU3ajMAOgfWcsFnvwIAZeBhSHJDhXdgAA7Puyp6en2PpxBUBfQPZayRuKehKwLRaLBmLRNjsBMwMgGWDXi8DLgOwcAL1FVyTSFnEFQGn+TqKOna4A2BMMhcPk8hJ0GZABoD03ErE271wuMgPgXjAVDqVC1gsHgPYNsUQiNzcBXgakTWgqIF/cKnjqHEz0AJ/kR0BjrKsn+qDHuWJH12sB8CIdUdspAIBey2lXF28sZgCocQUyABJWctXSrljtOIBD7M/ZsWI7NQNgMcCuxDrbNwOgPTdqBTUCXwZMV4Rw1RQGwKaNx4i2w5cB651NiQIAoFiaAaAOSYAAoJiaAaAO9AEAEFNMzQBQh88AAFBnEAEA0O2TFgAZY/3NAFAn+5i7AOrgeVcAaO11ANihFpe2azoUmHZ9l5W4CDIDQC0uAIBKxdQMADWuQAagjvQzA6BZsTQDIGOgjxkAamMxA+CONk5aALQoplAGoBZ1NQCgjvUHAKAO9HHPAGwBAIgqpuarAB4AoDo1AyBLt0/6DECtfTMA1DGJWgBcJEvqbL/VA8CUYslGAtKDibZ7oQugzvYzA0Bt168LAO1IPwAA6ki/3xgAalzNXQB1SOTqAGBALaoZAHFdAaAugKPfDgAtzrEoygwAdf4GcA4gopiaAaDG1AyAjOm+qwGAf2obihkASa09CgD3nSZIM4BFc1zNAPCQAahUeU0AsHEAUcXUDAA1WzUDYFmx/K0BsEkx9QKAl0YAqEWNGAGgdgF26qYD6xsKn7msXgacViyLdQDYpAWAej8ACoAhHdTU+wEIAFAbypjTkFQAqE5p46f3BOzgAKBNOmOyjxkAaqpY7KxXzwHouwB0PSoD6DYCYFEt7oCzvtcJgb5rd84BQJTHTQsAds2Z3xBEAIA61h86ByBLvR+AAAC1C0CnA98gS3V8PT3A1QxAnQzEAZAx3/+IEwIVAGpj0c4FoABQU6UIHgBxBAAqyAhy65c7AFLfpRq2FqUaml0B8KCMjPMvi5U9dgVAek4Ci+lB8okJAD0lxc31zSX1JbyhmQBAx2WHg+yWYSAANpZtJIrWuQIgWBRKEQWnnH0yASBnY84vOTm/RttdAbAz2h2JdLd1dz91BUBRUUNDQ1FRuNmJngkAbb+2fZtjbT+HRw8EQMNWy68V1xIjAOxzAAkyML+rpyd63zmY6AE+xONqAyAcsqorFArud9q9CQA9JT299fXn68+7A4BMeAg3hNnfgwCoZPfo76lxBYAV1woSV5YZ9pOPTACwnPZWVvZ2VbkCoMGqzoaUFbEBVwBUsHYV7HUFQOTXtpxvv/02Z6M7AELhUEOwIRjkHXMjADasiOK3BNMAYEC0BAHwvuQUAkBQGsK8DQLAf0lOIQDIV29BAExIphAA5Ev9IAC2SaYQALZIlhAAGsZFSzADmJec8ucCmAAg3zAQAsCfJUt6MNHM7XQGAILSePdlCAD/LTmFABCWLEEAyBeQIQB0Zu6TCQDSDAoQAPLIUAgAoWuiJQgA+Q6YEADCklMYAAWSVxAA8rBICAAfS061ALBPV0iW2pGANgB+kkwhAMgNZZUAIFeUMFkoEwCPJVN+U9BMAMgTA5Q7AkkAkPcJzADkq+zuAJDADp4DOJrpmdYBzQAqedxUBk9CAJCP1VUCgDzbAAKADHYQANJsJxAA8qAoCAByRa0SAOSjatUygMxx0a8PAHn/D0IAkCe8/OYAkBsKCIBRyRQCgJwBQAAISZarCgAptwDPAZyULJPOeuEyoBYAYBfgfyTTVQLAjGQKAaBAsuyHALBNMoUAIA/3154EjOv2CQTA3zLjagCAXPteAEDPARQ7RZEAEJQbSgoNAP5N4QYADxkAdBJQrlThKkEmAK5LpmUAAOSGAnYB5AyADxXOBECWZAkBQK6oPUEAANOZte8RAGyo71EnrvbJbXl2atz5aNAFAGAG8IYBoMkAhDsCrUoGwIcKu2UAg8GAdPVGAoDcteOPBnu9DKBAsoUAIFe/8GzATABclCz/AQBALuqS0pCmyZINgM8l01o0AMAMQG4o+AygXwcAu/XJjwGCMoBSyZI/G9CtC7ACAeCFZOl+FeBQhucEH+lH42qfA5CnRyadOnDLAMYhALxqF+AwHgD7AADkS5bCswEzASCD/TwAgOLMikIBYAUCgBxX5agDAHAYBEDDy6WlJfrz8tqFpWIIALdHB44MjA5QjfZBGUD74+cjI8+prP9pEzadA3jx6NHhbUSHD297tAsCwL/GX35N9PLl+Ncvj5QAAAj8+PLlhQsvqS5c+wsEgH99dphoz549h/cc/nE7AID85cGRQaKRycGR8XM6ANhOP7eqc3R0ifxeWpqCTgLWP3r+6Dl5PX/0aOBpFgCA1PQA1/inQWd9JgB2PybbtUrwcGnp4eh6VwD0jY8eGaWy4jpHx4aPOAdL3KlissPf3x+wyvqUBPaz+80QAOYHBydtjfdDALj6mBZ21Cr0w9Ft5wEABE892vaIvMivpQMQAD6lHkkUrNcX1Cm/fCsBoGh5cNwKKost82QCwGXmz9LD0dF7vQAAWgcGjoza0TrUDAAgPDxubXuEanD8BgSA3Usn2NbJ9h+XAgAIv1iyamgbO66u7QcBoJEBABq5jQMQpGYA5lt+uY0DEOQ2DoDLbRyAILdxAMo+AeMAuFzHAXA16wGgkXCdXwKARqhxAIKek/X8jkATZksVAOb747mNAxDkNg6Ay20cgCADACSx+WYmAGjkNg6Ay20cgFpR5nEAgtzGAXD5APjjASCyZgBgd/yhZw+axAzAVAe/CwC4DQTiesMASPwhAeA2EpDrNQAQddl/FACGXgEA3S4VtSYAMHUBNPIKAL47FADAgz/eBgAAT/753WQA2wUAlDlNTC8VAOaGIqx3u0N53FnPGkqL0bJSAUCf2ak6F8DtwR/myUCCdjgASLoAYL2SAZhb33ccAPrJQFwqAMwlVWcD/tPsFDUXIKCs52f5F82e7zrtnsXN/Ogv9Y5AQLvmDwZZky5AjUtc1cuAZgAE8QDoVQDgltmZ5wII4ked5wwAuO+/21wALhUAwJN/kgoA3G77Tb9JKACA+/6/UhcADwD9bECuUme9GwBcJwNx8bmabgDIUTIAAAC3vAGgnHvWzwXguqtkAOa4qgAAMgAVAJVGy9cAgNuTf1AAWEEDoEcBAOqBLigACBmAubOySQXAqNlrtwIAcxPsVAAAFJUDoN4F6hEOAO1sQEFXFQDsNFqqGUCT2ak6HbjcaNlE10fsKsuYDsyV/xQNAPUqwC9GS+EwpgC4bXZ6SQcAc2a3lced3mz7tNnzOXQG0K0A4InZKf9iYwB4YLTsUQAAxHVCAYDZaaMCgGKz0wEZAMCDP1QAmEsqPPyTzpB5YXbK59gyABwzWh5TAbBy8bZG03O3b/fdUgBw6/JN/sDlm1TpN5cVAKzsevLixROuF5aeXCFLex85RWWbvzV76fil44qGjg8NDR1XMoCVbPK0ZecJ2ba+6pvOvqYAIC9v4rJW088UAAzOL0xMLBCx54OnF63X8IoCAFKk9HPK7WJ+/r8vpueG5g46AGAZwBc/8aekz9Cnf7Olm5/8pGQAK3232TO51QDc6dujAODg3NClzIoacipKuCVYnxW9O/RB1XcEl9aHbLUKgMNzH6oiD6D+cO4ZG3JBTwKy0b/DEwv9R48eHZ4Ym5jvP2AtHe2/QSvwxqQCgO/P7Di7g+kskbCoAGBl7wvaPpyWktaVFx9dc75NGABOnbF92r6YzszcUwAwODwxz4IpiEaYxVUAwFmrAZ89czZDO2boVCeWIVAA3NMfK9YPG/Ai3BKsf2J4QaeJ4SkFAJOzs8enhngweVyFx39/lK6oJxq9uPJkL39OOgPAszM/cD2j+uHHH5+duT6flwEAF2nuCWiS5p6ABp1Cb14EgIs0zwUwSXNbcIM09wQ0iQPATZp7AhqkuSegSUl0RZnuCWiSMOXZRUIXwE2am4IapLknoEmam4JC+1SDsRTuB+AmzT0BDdLcE9AkzV2BDdLcE9AkDwCgXYQYxlIYlYwqaiXKKR/q66Yx/P7TcwRTGMv96H1ayUUDoB0NgD14AMTRFcXvGISL61F0cZedHNdVdTwDcNGaAICOHqrCWLJzPygA0C+rcxhLmirlYCx1NwU16PiaAIBeJuzGWHrIAI6jN6+7K7BBFADNGEsW00WMpYcMgDiNoCzb0U1a82Qgk0rRGQAHQAJjrns0mEGLHsGOAoDw8E83VaLB7gEAmQ8GMQkPgEF8XJPeAIA7AFj4UbZeuwC7MJY0AyjGWOoeDGLQVx67APiGgkp/hasAbjqJbtKja9sFwAFgNzoDYE8GQjnd560L0Iix9NoFqMVY0rgGUZZxNADG8QDYje4CfIA/AFj4UUfgITwA3kcD4AM0f1iqOI2x9HAOoAx9DoAeVrsxlrSh4FIlOtUhjrHUPBnIJJoB3MZY8suEHs4BoIo7ic/s6tDt+jj+WC1BA4BmdtUYS5pWhFGWcTQpB/FxjaNTJXo9tQ7llIW/qLg7Eo2kn3utE7ldOb341d0UL+VazyV8WpqkPetweauruukTwypra2uqa/SqIr+qq2prqqjTUEGnpQ2dOm1g6txAb8HeVtO4ebP1Mqhxc2Pj5rpG2gXIjyWYCrVKFFprYvQZDG3t8dJ4Mk7F95e9T1qfNP1S2p5cTy8Dtmxp2WKrhWsLV0tWnN5eNFUG1Hxaxa3EMhKPr48LKlXKUEpeSTLXKPBdNFIcjRrDSZ9sUMyvZ5Zvia/XqjReuqW+vvmcFeB4O70feqqgoKOAVUphLGHFoyOz4hL0iWFddTVV1bVCMGu50sG14kpDUBEBWgt9bHmkvJs+Xareagu1oidVNcQ37QIUJRIxKLCkoG00rl3V1t9VGfzRklfV1NWRk4Chbv4k8WhGlTIVF9PnJYV67HalFEH4NEYfHB9dnyxNAnGlgU3SbDXc3VreCh1Z5etay+lRtbGqmqpKp+r/q/7556raurqAL1++fPny5cuXL1++fPny5evtUH4RU761kJ/+L3ORG+XzNeKnbovWD1H6veiliH/qLIp/phpk+M38M+W9UwD1U9iAb0cutP1pRfrzzvwUfVJkKGWt7ewsog+NpO+ZKuhfVNibNBVau1eG6hQrMN/5kC17iqAa8YwAFeV35FdY6uzoYLsZDqcqrF2uSIXIf2pci/JNu6JvGVL9Z+6gaMB3MDOC8ubM21EMnE91zS4f3S71W9PFVd8uxX1Vq1MTzHwl8KaIm/7UiloqFUpVWC3Taq8B1LUCX758/SHlA8CXr7dYPgB8+XqL5QPAl6+3WD4AfPl6ixVY9PVqmiJaXFxeHhqbGFtcpp8tLy8vTlm/p8YWFuZPL06S99YnU2+6rK+7p8ts93bsmFpeHBobmxha/p3v0lsrK4Cnx8ZO0+a7SIL4/wvwB+INvkqpAAAAAElFTkSuQmCC"></image>
+                    </pattern>
+                </defs>
+
+                <rect height="100px" width="400vh" x="0" y="0" stroke="black" fill="url(#patt1)"></rect>
+            </svg>
+        </div>
+    </div>
+</body>
